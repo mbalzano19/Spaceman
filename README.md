@@ -50,7 +50,8 @@ font-family: 'Teko', sans-serif;
 ![Imgur](https://imgur.com/HaVap0w)
 https://imgur.com/HaVap0w
 
-![Alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/mbalzano/Desktop/Screenshot%202023-04-23%20at%209.11.03%20PM.png?version%3D1682342885012)
+<img src=".image/wireframe.png"/>
+![alt text](.image/wireframe.png)
 
 ## Psuedocode
 
