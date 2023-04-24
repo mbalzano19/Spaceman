@@ -54,8 +54,20 @@ img {
 
 #restart {
     margin-top: 50px;
-    display: 
+    /* visibility: hidden; */
+}
 
+#underscore {
+    display: flex;
+    flex-direction: column;
+    margin: -10px;
+    font-size: 40px;
+
+}
+
+#wordAnswer {
+    font-size: 40px;
+    
 }
 
 
