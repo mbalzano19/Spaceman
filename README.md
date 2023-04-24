@@ -49,6 +49,8 @@ font-family: 'Teko', sans-serif;
 
 ![Imgur](https://imgur.com/HaVap0w)
 
+
+
 ## Psuedocode
 
 1) Define required constants:
