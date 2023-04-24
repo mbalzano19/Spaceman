@@ -49,7 +49,7 @@ font-family: 'Teko', sans-serif;
 
 ![Imgur](https://i.imgur.com/HaVap0w.png)
 
-## Psuedocode
+## Pseudocode
 
 1) Define required constants:
   1.1) Define the max number of guesses allowed for each round of the game. This number will not change
