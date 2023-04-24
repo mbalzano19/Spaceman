@@ -48,6 +48,8 @@ font-family: 'Teko', sans-serif;
 ## Wireframe the UI
 
 ![Imgur](https://imgur.com/HaVap0w)
+![Imgur](https://i.imgur.com/HaVap0w.png)
+
 https://imgur.com/HaVap0w
 
 <img src=".image/wireframe.jpeg"/>
