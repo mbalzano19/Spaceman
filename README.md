@@ -50,8 +50,9 @@ font-family: 'Teko', sans-serif;
 ![Imgur](https://imgur.com/HaVap0w)
 https://imgur.com/HaVap0w
 
-<img src=".image/wireframe.png"/>
-![alt text](.image/wireframe.png)
+<img src=".image/wireframe.jpeg"/>
+<img src="https://imgur.com/HaVap0w"/>
+![alt text](.image/wireframe.jpeg)
 
 ## Psuedocode
 
