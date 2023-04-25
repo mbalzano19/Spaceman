@@ -1,5 +1,5 @@
 /*----- constants -----*/
-const words = ["KANGAROO", "GORILLA", "OTTER", "SLOTH", "ELEPHANT", "PLATYPUS", "GAZELLE", "ZEBRA", "CHIMPANZEE", "CHEETAH", "RHINOCEROS", "BISON", "ARMADILLO", "OCTOPUS", "WALRUS", "OSTRICH", "ORANGUTAN", "DOLPHIN", "LEMUR", "GIRAFFE", "HIPPOPOTAMUS", "FLAMINGO", "HEDGEHOG", "RACCOON", "SCORPION", "BADGER", "HYENA", "PENGUIN", "LLAMA", "GRIZZLY BEAR", "COUGAR", "JELLYFISH", "LOBSTER", "SALAMANDER", "GORILLA", "HUMMINGBIRD", "WOODPECKER", "PORCUPINE", "SNAIL", "VULTURE", "NARWHAL", "PLATYPUS", "MONGOOSE", "PELICAN", "REINDEER", "SEAL", "SPIDER", "SWORDFISH", "YAK", "KANGAROO RAT"]
+const words = ["KANGAROO", "GORILLA", "OTTER", "SLOTH", "ELEPHANT", "PLATYPUS", "GAZELLE", "ZEBRA", "CHIMPANZEE", "CHEETAH", "RHINOCEROS", "BISON", "ARMADILLO", "OCTOPUS", "WALRUS", "OSTRICH", "ORANGUTAN", "DOLPHIN", "LEMUR", "GIRAFFE", "HIPPOPOTAMUS", "FLAMINGO", "HEDGEHOG", "RACCOON", "SCORPION", "BADGER", "HYENA", "PENGUIN", "LLAMA", "GRIZZLY", "COUGAR", "JELLYFISH", "LOBSTER", "SALAMANDER", "GORILLA", "HUMMINGBIRD", "WOODPECKER", "PORCUPINE", "SNAIL", "VULTURE", "NARWHAL", "PLATYPUS", "MONGOOSE", "PELICAN", "REINDEER", "SEAL", "SPIDER", "SWORDFISH", "YAK", "TIGER"]
 const MAX_GUESS = 7
 /*-----------------------------------*/
 /*----- app's state (variables) -----*/
@@ -14,7 +14,7 @@ console.log(answerArray)
 
 
 const roundWord = document.getElementById('wordAnswer');
-roundWord.innerText = answer
+// roundWord.innerText = answer
 roundWord.style.letterSpacing = '10px'
 // roundWord.visibility = "hidden"
 
@@ -33,6 +33,7 @@ let winner
 let wrongGuesses
 let guess
 let guessedArray = []
+let letterGuess = ''
 /*-----------------------------------*/
 /*----- cached element references -----*/
 const guessesLeftEl = document.getElementById('guessLeft')
@@ -192,7 +193,7 @@ function guessTracker(e) {
 // && !guessedArray.includes(e.target.innerText)
 
 
-checkWin()
+// checkWin()
 
 function checkWin() {
     if (guessesLeftEl.innerText === '0') {
@@ -201,14 +202,16 @@ function checkWin() {
         console.log('game over')
         resultEl.innerText = 'You lose! Try again.'
         // winner === false
-    } else if (answerArray.sort().join(',') === guessedArray.sort().join(',')){
+    // } else if (answerArray.sort().join(',') === guessedArray.sort().join(',')){
+    } else if (underScoreEl.innerText.indexOf("_") === -1) {
         console.log('you win!')
         resultEl.innerText = 'You win! Well played.'
+        restartButtonEl.style.visibility= "visible"
         
         // winner === true
     }
     // showResult()
-}    
+}
 console.log(resultEl)
 // function showResult() {
 //     if (winner === true) {
