@@ -7,10 +7,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    /* background-image: url("image/space.png"); */
+    /* background-size: cover; */
+    background-image: url("/image/bluespacebackground.png");
+}
+
     /* background-color:aquamarine; */
 
-}
+
 
 h3 {
     display: flex;
