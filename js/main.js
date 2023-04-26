@@ -139,9 +139,10 @@ function spaceMan() {
     } else if (guessesLeftEl.innerText === "2") {
         rocketManEl.src = "image/rocket_5.png"
     } else if (guessesLeftEl.innerText === "1") {
-        rocketManEl.src = "image/rocket_6.jpg"
+        rocketManEl.src = "image/rocket_6.png"
     } else if (guessesLeftEl.innerText === "0") {
-        rocketManEl.src = "image/rocket_7.png"        
+        rocketManEl.src = "image/rocket_7.png" 
+        rocketManEl.className = 'slide-out-blurred-top'      
 }
 }
 init()
