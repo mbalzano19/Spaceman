@@ -7,9 +7,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-image: url("image/space.png"); */
-    /* background-size: cover; */
+    background-size: cover;
     background-image: url("/image/bluespacebackground.png");
+    color: white;
 }
 
     /* background-color:aquamarine; */
