@@ -104,9 +104,9 @@ function guessTracker(e) {
 function startGame() {
     letterButtons.forEach((button) => (button.disabled = false)),
     restartButtonEl.style.visibility = winner ? 'visible' : 'hidden'
-    if (restartButtonEl.click === true) {
-        init()
-    }
+    // if (restartButtonEl.click === true) {
+    //     init()
+    // }
 }
 
 
@@ -129,7 +129,7 @@ console.log(resultEl)
 
 function spaceMan() {
     if (guessesLeftEl.innerText === "7") {
-        rocketManEl.src = "image/rocket_7.png" 
+        rocketManEl.src = "image/rocket_0.png" 
     } else if (guessesLeftEl.innerText === "6") {
         rocketManEl.src = "image/rocket_1.png"
     } else if (guessesLeftEl.innerText === "5") {
@@ -145,6 +145,7 @@ function spaceMan() {
     } else if (guessesLeftEl.innerText === "0") {
         rocketManEl.src = "image/rocket_7.png" 
         // rocketManEl.className = 'slide-out-blurred-top'      
-} startGame()
+// } startGame()
+    }
 }
 init()
