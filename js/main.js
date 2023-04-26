@@ -144,7 +144,7 @@ function spaceMan() {
         rocketManEl.src = "image/rocket_6.png"
     } else if (guessesLeftEl.innerText === "0") {
         rocketManEl.src = "image/rocket_7.png" 
-        rocketManEl.className = 'slide-out-blurred-top'      
+        // rocketManEl.className = 'slide-out-blurred-top'      
 } startGame()
 }
 init()
