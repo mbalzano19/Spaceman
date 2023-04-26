@@ -49,11 +49,6 @@ function init() {
     answer = words[Math.floor(Math.random() * words.length)]
     console.log(answer)
     answerArray = answer.split('')
-    // restartButtonEl.style.visibility= "hidden"
-
-    // document.getElementById('A', 'B', 'C', 'D').disabled = false,
-    // document.querySelector('.buttons').setAttribute('disabled', false);
-    // document.querySelectorAll('buttons').disabled = false
     render()
 }
 
@@ -76,7 +71,6 @@ function handleClick(e) {
     // let guessTracker = guessedArray.push(e.target.innerText)
     guessTracker(e)
     console.log(guessedArray)
-    let answerArray = []
     if (answerArray.indexOf(e.target.innerText) !== -1) {
         console.log('true')
         // checkWin()
@@ -98,6 +92,9 @@ function guessTracker(e) {
     const letterGuess = answer.split('').map(guess => (guessedArray.indexOf(guess) >= 0 ? guess : " _ ")).join('')
     underScoreEl.innerHTML = letterGuess
     checkWin()
+    if (e.target === restartButtonEl) {
+        init()
+    }
     console.log(letterGuess)
 }
 
@@ -110,30 +107,21 @@ function startGame() {
     }
 }
 
-// function restartGame() {
-
-    
-// } 
-
 
 function checkWin() {
     if (guessesLeftEl.innerText === '0') {
         restartButtonEl.style.visibility= "visible"
-        // restart game, stop counter //
+
         console.log('game over')
         resultEl.innerText = 'You lose! Try again.'
         allButtonsEl.disabled = 'disabled'
 
-        // winner === false
-    // } else if (answerArray.sort().join(',') === guessedArray.sort().join(',')){
     } else if (underScoreEl.innerText.indexOf("_") === -1) {
         console.log('you win!')
         resultEl.innerText = 'You win! Well played.'
         restartButtonEl.style.visibility= "visible"
-        
-        // winner === true
     }
-    // showResult()
+
 }
 console.log(resultEl)
 
@@ -156,8 +144,4 @@ function spaceMan() {
         rocketManEl.src = "image/rocket_7.jpg"        
 }
 }
-// console.log(spaceMan)
-
-// console.log(rocketManEl)
-// render()
 init()
