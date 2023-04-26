@@ -129,19 +129,19 @@ function spaceMan() {
     if (guessesLeftEl.innerText === "7") {
         rocketManEl.src = blank
     } else if (guessesLeftEl.innerText === "6") {
-        rocketManEl.src = "image/rocket_1.jpg"
+        rocketManEl.src = "image/rocket_1.png"
     } else if (guessesLeftEl.innerText === "5") {
-        rocketManEl.src = "image/rocket_2.jpg"
+        rocketManEl.src = "image/rocket_2.png"
     } else if (guessesLeftEl.innerText === "4") {
-        rocketManEl.src = "image/rocket_3.jpg"
+        rocketManEl.src = "image/rocket_3.png"
     } else if (guessesLeftEl.innerText === "3") {
-        rocketManEl.src = "image/rocket_4.jpg"
+        rocketManEl.src = "image/rocket_4.png"
     } else if (guessesLeftEl.innerText === "2") {
-        rocketManEl.src = "image/rocket_5.jpg"
+        rocketManEl.src = "image/rocket_5.png"
     } else if (guessesLeftEl.innerText === "1") {
         rocketManEl.src = "image/rocket_6.jpg"
     } else if (guessesLeftEl.innerText === "0") {
-        rocketManEl.src = "image/rocket_7.jpg"        
+        rocketManEl.src = "image/rocket_7.png"        
 }
 }
 init()
