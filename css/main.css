@@ -7,8 +7,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url("../image/bluespacebackground.png");
     background-size: cover;
-    background-image: url("/image/bluespacebackground.png");
     color: white;
 }
 
