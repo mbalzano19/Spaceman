@@ -49,6 +49,7 @@ function init() {
     answer = words[Math.floor(Math.random() * words.length)]
     console.log(answer)
     answerArray = answer.split('')
+    spaceMan()
     render()
 }
 
@@ -56,6 +57,7 @@ function render() {
     underscore()
     startGame()
     checkWin()
+
     // restartGame()
 
 }
@@ -127,7 +129,7 @@ console.log(resultEl)
 
 function spaceMan() {
     if (guessesLeftEl.innerText === "7") {
-        rocketManEl.src = blank
+        rocketManEl.src = "image/rocket_7.png" 
     } else if (guessesLeftEl.innerText === "6") {
         rocketManEl.src = "image/rocket_1.png"
     } else if (guessesLeftEl.innerText === "5") {
@@ -143,6 +145,6 @@ function spaceMan() {
     } else if (guessesLeftEl.innerText === "0") {
         rocketManEl.src = "image/rocket_7.png" 
         rocketManEl.className = 'slide-out-blurred-top'      
-}
+} startGame()
 }
 init()
