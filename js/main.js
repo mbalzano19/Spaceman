@@ -4,73 +4,89 @@ const MAX_GUESS = 7
 /*-----------------------------------*/
 /*----- app's state (variables) -----*/
 // generate answer by randonmly selection word from words array
-const answer = words[Math.floor(Math.random() * words.length)]
-console.log(answer)
+let answer
 
-const answerArray = answer.split('')
-
-console.log(answerArray)
+// console.log(getAnswer)
+// console.log(answer)
 
 
+
+// console.log(answerArray)
 
 const roundWord = document.getElementById('wordAnswer');
-// roundWord.innerText = answer
+
 roundWord.style.letterSpacing = '10px'
-// roundWord.visibility = "hidden"
 
 const underScoreEl = document.getElementById('underscore')
-underScoreEl.innerText = Array(answer.length + 1).join('_ ')
-// underScoreEl.innerText = Array(answer.length).fill('_').join(' ')
+
 underScoreEl.style.letterSpacing = '5px'
 
-// const underscoreArray = Array(answer.length).fill(' ')
-
-
-
-
-let winner
-// let spaceMan
-let wrongGuesses
-let guess
-let guessedArray = []
-let letterGuess = ''
 /*-----------------------------------*/
 /*----- cached element references -----*/
 const guessesLeftEl = document.getElementById('guessLeft')
 const restartButtonEl = document.getElementById('restartButton')
 const resultEl = document.getElementById('message')
 const rocketManEl = document.getElementById('rocket')
+const allButtonsEl = document.querySelectorAll('.buttons')
+const letterButtons = document.querySelectorAll('.letterButton')
+const restartEl = document.querySelector('.restart')
 
 /*-----------------------------------*/
 /*----- event listeners -----*/
 document.querySelector('body').addEventListener('click', handleClick)
+restartButtonEl.addEventListener('click', init)
 
 /*-----------------------------------*/
 /*----- functions -----*/
-// init()
-// function render() {
-//     checkWin()
-// }
+
+function init() {
+    restartButtonEl.disabled = false,
+    guessedArray = [],
+    winner = null,
+    guess = null,
+    guessesLeftEl.innerText = 7,
+    resultEl.innerText = 'Try to guess the word!',
+    answer = words[Math.floor(Math.random() * words.length)]
+    console.log(answer)
+    answerArray = answer.split('')
+    // restartButtonEl.style.visibility= "hidden"
+
+    // document.getElementById('A', 'B', 'C', 'D').disabled = false,
+    // document.querySelector('.buttons').setAttribute('disabled', false);
+    // document.querySelectorAll('buttons').disabled = false
+    render()
+}
+
+function render() {
+    underscore()
+    startGame()
+    checkWin()
+    // restartGame()
+
+}
+
+function underscore() {
+    underScoreEl.innerText = Array(answer.length + 1).join('_ ')
+}
+
+
 function handleClick(e) {
     if (e.target.tagName !== 'BUTTON') return
     // console.log(e.target.innerText)
     // let guessTracker = guessedArray.push(e.target.innerText)
     guessTracker(e)
     console.log(guessedArray)
+    let answerArray = []
     if (answerArray.indexOf(e.target.innerText) !== -1) {
         console.log('true')
         // checkWin()
     } else {
-        if (guessesLeftEl.innerText > 0) {
+        if (guessesLeftEl.innerText > 0 && e.target !== restartButtonEl) {
         guessesLeftEl.innerText -=1
         console.log('false')
         spaceMan()
     } 
         checkWin()
-        // call function that displays loosing message, 
-    
-    // spaceMan()
-
 }}
 
 function guessTracker(e) {
@@ -86,114 +102,19 @@ function guessTracker(e) {
 }
 
 
+function startGame() {
+    letterButtons.forEach((button) => (button.disabled = false)),
+    restartButtonEl.style.visibility = winner ? 'visible' : 'hidden'
+    if (restartButtonEl.click === true) {
+        init()
+    }
+}
 
+// function restartGame() {
 
-
-
-
-
-
-
-// function guessTracker(e) {
-//     const guess = e.target.innerText
-
-//     underScoreEl.innerHTML = letterGuess
-//     console.log(letterGuess)
-//     const letterGuess = answer.split('').map(guess => (guessedArray.indexOf(guess) >= 0 ? guess : " _ ")).join('')
-//     for (let i = 0; i < answerArray.length; i++) {
-//         if (answerArray[i] === e.target.innerText) {
-//                guessedArray.push(e.target.innerText)
-//                e.target.disabled = 'disabled'
-            //    for (let j = 0; j < answerArray.length; j++) {
-                // roundWord.style.visibility = 'visible'
-
-            //    }
-
-            
-            //    underScoreEl.innerText.indexOf[i] = e.target.innerText
-            //    underScoreEl.innerText.splice(e.target.innerText[i], 1, e.target.innerText)
-    // }
-    // }
-
-
-// function guessTracker(e) {
-//     const guessedLetter = e.target.innerText;
-//     let foundLetter = false;
     
-//     for (let i = 0; i < answerArray.length; i++) {
-//         if (answerArray[i] === guessedLetter) {
-//             guessedArray.push(guessedLetter);
-//             foundLetter = true;
-//         }
-//     }
-    
-//     if (foundLetter) {
-//         e.target.disabled = true;
-//         updateRoundWord();
-//     } else {
-//         // handle wrong guess
-//     }
-// }
+// } 
 
-// function updateRoundWord() {
-//     let roundWordString = '';
-//     for (let i = 0; i < answerArray.length; i++) {
-//         if (guessedArray.includes(answerArray[i])) {
-//             roundWordString += answerArray[i];
-//         } else {
-//             roundWordString += '_';
-//         }
-//     }
-//     roundWord.textContent = roundWordString;
-//     console.log(answerArray)
-// }
-
-// function guessTracker(e) {
-//     const guessedLetter = e.target.innerText
-//     let correctLetter = false
-
-//     for (let i = 0; i < answer.length; i++) {
-//         if (answerArray[i] === guessedLetter) {
-//             answerArray[i] = guessedLetter
-//             correctLetter = true
-//         }
-//     }
-//     if (correctLetter) {
-//         const showLetter = underscoreArray.join('_ ')
-//         underScoreEl.innerText = showLetter
-//     }
-//     e.target.disabled = true
-
-//     guessedArray.push(guessedLetter)
-// }
-
-
-
-
-
-
-// for (let i = 0; i < answerArray.length; i++) {
-//     if (answerArray.includes(e.target.innerText)) {
-//     underScoreEl.innerText.replace('_ ', answerArray[i])
-// }
-// }
-
-
-// function showLetter() {
-
-//     for (let i = 0; i < answerArray.length; i++) {
-//     if (answerArray.includes(e.target.innerText)) {
-//         underScoreEl.innerText = e.target.innerText[i]
-//     }
-// }
-
-// if (answerArray.includes(e.target.innerText)) {
-//     guessedArray.push(e.target.innerText)
-
-// && !guessedArray.includes(e.target.innerText)
-
-
-// checkWin()
 
 function checkWin() {
     if (guessesLeftEl.innerText === '0') {
@@ -201,6 +122,8 @@ function checkWin() {
         // restart game, stop counter //
         console.log('game over')
         resultEl.innerText = 'You lose! Try again.'
+        allButtonsEl.disabled = 'disabled'
+
         // winner === false
     // } else if (answerArray.sort().join(',') === guessedArray.sort().join(',')){
     } else if (underScoreEl.innerText.indexOf("_") === -1) {
@@ -213,18 +136,6 @@ function checkWin() {
     // showResult()
 }
 console.log(resultEl)
-// function showResult() {
-//     if (winner === true) {
-//         resultEl.innerText = 'You win! Well played.'
-//     } else if (winner === false) {
-//         resultEl.innerText = 'You lose! Try again'
-//     }
-// }
-
-// function changeRocket(e) {
-//     if (guessTracker(e) = 6) {
-//         rocketMan.src = "image/rocket_1.jpg"
-//     }}
 
 function spaceMan() {
     if (guessesLeftEl.innerText === "7") {
@@ -249,3 +160,4 @@ function spaceMan() {
 
 // console.log(rocketManEl)
 // render()
+init()
