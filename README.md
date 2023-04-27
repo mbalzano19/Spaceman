@@ -1,10 +1,10 @@
-### Spaceman
-Spaceman is an iteration of the classic game "Hangman". The objective of this game is to correctly guess all of the letters in a hidden word. If you guess a letter that is in the hidden word, the letter will appear in the position that it is in in the hidden word. If you guess a letter incorrectly, your number of incorrect guesses left decreases by one, and an element of the spaceman is shown. Each time a wrong letter is guessed, another element of the spaceman appears. Once you make the last incorrect guess, and you have none left, the entire spaceman figure will be shown, and the game will be lost. In this case, the spaceman figure is a rocketship. Once the entire rocketship is shown, it will animate and fly away, and the game will be over. If you guess all of the correct letters in the word, you have won the round. After a round ends, click restart to play again with a new word.
+# Spaceman
+Spaceman is an iteration of the classic game "Hangman". The objective of this game is to correctly guess all of the letters in a hidden word. To win the game, guess all of the letters that are in the hidden word. If you guess incorrectly too many times and run out of guesses, you lose the game.
 
 # Screenshot
 
+<img src="https://i.imgur.com/HaCVMKB.png">
 <img src="https://i.imgur.com/RoKfz0J.png">
-<img src="url to your image on imgur">
 
 # Technologies Used
 
@@ -24,6 +24,5 @@ To begin playing Spaceman, simply click a letter to make a guess. If the letter 
 
 # Next Steps
 
-- Add feature that allows user to pick from multiple categories of hidden words. Currently, there is one category, which is animals.
-- Add animation to each rocketship image when it appears on the page. Currently, there is only animation at the end of the game when the final rocketship image is displayed.
-- 
+- Add feature that allows user to pick from multiple categories of hidden words. Currently, there is one category, which is animals
+- Add animation to each rocketship image when it appears on the page. Currently, there is only animation at the end of the game when the final rocketship image is displayed
