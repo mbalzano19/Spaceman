@@ -1,9 +1,9 @@
-# <Spaceman>
+### Spaceman
 Spaceman is an iteration of the classic game "Hangman". The objective of this game is to correctly guess all of the letters in a hidden word. If you guess a letter that is in the hidden word, the letter will appear in the position that it is in in the hidden word. If you guess a letter incorrectly, your number of incorrect guesses left decreases by one, and an element of the spaceman is shown. Each time a wrong letter is guessed, another element of the spaceman appears. Once you make the last incorrect guess, and you have none left, the entire spaceman figure will be shown, and the game will be lost. In this case, the spaceman figure is a rocketship. Once the entire rocketship is shown, it will animate and fly away, and the game will be over. If you guess all of the correct letters in the word, you have won the round. After a round ends, click restart to play again with a new word.
 
 # Screenshot
 
-<img src="url to your image on imgur">
+<img src="https://i.imgur.com/RoKfz0J.png">
 <img src="url to your image on imgur">
 
 # Technologies Used
@@ -14,6 +14,7 @@ Spaceman is an iteration of the classic game "Hangman". The objective of this ga
 - Rocketship image - find link
 - animista animation info
 - button animation info
+- background image info
 
 # Getting Started
 
