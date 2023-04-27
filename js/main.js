@@ -46,7 +46,8 @@ function init() {
     winner = null,
     guess = null,
     guessesLeftEl.innerText = 7,
-    resultEl.innerText = 'Try to guess the word!',
+    resultEl.innerText = 'Try to guess the animal!',
+    rocketManEl.className = 'start'
     answer = words[Math.floor(Math.random() * words.length)]
     console.log(answer)
     answerArray = answer.split('')
@@ -161,8 +162,8 @@ function spaceMan() {
         rocketManEl.src = "image/rocket_6.png"
     } else if (guessesLeftEl.innerText === "0") {
         rocketManEl.src = "image/rocket_7.png" 
-        // rocketManEl.className = 'slide-out-blurred-top'  
-        
+        rocketManEl.className = 'slide-out-blurred-top'  
+        // startGame()
 // } startGame()
     }
 }
