@@ -3,24 +3,8 @@ const words = ["KANGAROO", "GORILLA", "OTTER", "SLOTH", "ELEPHANT", "PLATYPUS", 
 const MAX_GUESS = 7
 /*-----------------------------------*/
 /*----- app's state (variables) -----*/
-// generate answer by randonmly selection word from words array
 let answer
 let guessedArray = []
-// console.log(getAnswer)
-// console.log(answer)
-
-
-
-// console.log(answerArray)
-
-const roundWord = document.getElementById('wordAnswer');
-
-roundWord.style.letterSpacing = '10px'
-
-const underScoreEl = document.getElementById('underscore')
-
-underScoreEl.style.letterSpacing = '5px'
-
 /*-----------------------------------*/
 /*----- cached element references -----*/
 const guessesLeftEl = document.getElementById('guessLeft')
@@ -30,26 +14,24 @@ const rocketManEl = document.getElementById('rocket')
 const allButtonsEl = document.querySelectorAll('.buttons')
 const letterButtons = document.querySelectorAll('.letterButton')
 const restartEl = document.querySelector('.restart')
-
-
+const roundWord = document.getElementById('wordAnswer');
+const underScoreEl = document.getElementById('underscore')
 /*-----------------------------------*/
 /*----- event listeners -----*/
 document.querySelector('body').addEventListener('click', handleClick)
 restartButtonEl.addEventListener('click', init)
-
 /*-----------------------------------*/
 /*----- functions -----*/
-
+// sets the initial state of the game
 function init() {
-    restartButtonEl.disabled = false,
-    guessedArray = [],
-    winner = null,
-    guess = null,
-    guessesLeftEl.innerText = 7,
-    resultEl.innerText = 'Try to guess the animal!',
+    restartButtonEl.disabled = false
+    guessedArray = []
+    winner = null
+    guess = null
+    guessesLeftEl.innerText = 7
+    resultEl.innerText = 'Try to guess the animal!'
     rocketManEl.className = 'start'
     answer = words[Math.floor(Math.random() * words.length)]
-    console.log(answer)
     answerArray = answer.split('')
     letterButtons.className = 'letterButton'
     spaceMan()
@@ -57,94 +39,75 @@ function init() {
 }
 
 function render() {
-    // addClass()
     underscore()
     startGame()
     checkWin()
-
-    // restartGame()
-
 }
 
 function underscore() {
+    // creates the the same amount of underscores as there are letters in the answer word
     underScoreEl.innerText = Array(answer.length + 1).join('_ ')
+    underScoreEl.style.letterSpacing = '5px'
 }
-
 
 function handleClick(e) {
     if (e.target.tagName !== 'BUTTON') return
-    // console.log(e.target.innerText)
-    // let guessTracker = guessedArray.push(e.target.innerText)
     guessTracker(e)
-    console.log(guessedArray)
-    if (answerArray.indexOf(e.target.innerText) !== -1) {
-        console.log('true')
-        // checkWin()
-    } else {
+    // if clicked letter is found in the answer array, nothing happens to wrong guess tracker
+    if (answerArray.indexOf(e.target.innerText) !== -1) return
+    else {
+        // if clicked letter is not found in answer array, and clicked element is not the restart button,
+        // the wrong guesses left tracker is reduced by 1
+        // the spaceman function is then called to change the rocketship image displayed based on how many wrong guesses
+        // have been made
         if (guessesLeftEl.innerText > 0 && e.target !== restartButtonEl) {
-        guessesLeftEl.innerText -=1
-        console.log('false')
-        spaceMan()
+                guessesLeftEl.innerText -=1
+                spaceMan()
     } 
-        checkWin()
+    checkWin()
 }}
-// function addClass() {
-//     letterButtons.forEach(button => {
-//         button.classList.add('letterButton')
-//     })}
 
+// this function tracks the player guess
 function guessTracker(e) {
     const guess = e.target.innerText
+    // letter player clicks is pushed into an array to track the letters they have guessed
     guessedArray.push(guess)
-    console.log(guessedArray)
+    // letter player clicks is disabled after it is clicked once
     e.target.disabled = 'disabled'
-
+    // if the guessed letter is in the answer word, the underscore for that letter is changed to a letter
+    // if the guessed letter is not in the answer, the underscores remain the same
     const letterGuess = answer.split('').map(guess => (guessedArray.indexOf(guess) >= 0 ? guess : " _ ")).join('')
     underScoreEl.innerHTML = letterGuess
     checkWin()
+    // if restart button is clicked, game is initialized
     if (e.target === restartButtonEl) {
         init()
     }
-    console.log(letterGuess)
 }
 
-
+// this function sets the button for the start of the game
+// sets all letter buttons to enabled, and restart button to hidden
 function startGame() {
     letterButtons.forEach((button) => (button.disabled = false)),
     restartButtonEl.style.visibility = winner ? 'visible' : 'hidden'
-    // for (let i = 0; i < letterButtons.length; i++) {
-    //     letterButtons[i].classList.add('letterButton')
-    // }
-    // if (restartButtonEl.click === true) {
-    //     init()
-    // }
 }
 
-
+// this function checks for a win
 function checkWin() {
+// If there are 0 wrong guesses left, player loses
     if (guessesLeftEl.innerText === '0') {
         restartButtonEl.style.visibility= "visible"
-
-        console.log('game over')
         resultEl.innerText = 'You lose! Try again.'
-
-        // letterButtons.forEach(button => {
-        //     button.classList.add('hidden')
-        // })
-        // letterButtons.className = 'hidden'
-        // allButtonsEl.disabled = 'disabled'
-
-
+// If there arr no underscores left in underScoreEl, all letters have been guessed, and player wins
     } else if (underScoreEl.innerText.indexOf("_") === -1) {
-        console.log('you win!')
         resultEl.innerText = 'You win! Well played.'
         restartButtonEl.style.visibility= "visible"
-        // letterButtons.disabled = 'disabled'
     }
-
 }
-console.log(resultEl)
 
+// this function changes the rocketship image displayed on the screen
+// the rocketship image changes based on how many wrong guesses the player has left
+// once there are no wrong guesses left, the rocketship element class is changed to invoke the animation
 function spaceMan() {
     if (guessesLeftEl.innerText === "7") {
         rocketManEl.src = "image/rocket_0.png" 
@@ -163,8 +126,7 @@ function spaceMan() {
     } else if (guessesLeftEl.innerText === "0") {
         rocketManEl.src = "image/rocket_7.png" 
         rocketManEl.className = 'slide-out-blurred-top'  
-        // startGame()
-// } startGame()
     }
 }
+
 init()
