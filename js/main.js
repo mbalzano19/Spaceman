@@ -31,6 +31,7 @@ const allButtonsEl = document.querySelectorAll('.buttons')
 const letterButtons = document.querySelectorAll('.letterButton')
 const restartEl = document.querySelector('.restart')
 
+
 /*-----------------------------------*/
 /*----- event listeners -----*/
 document.querySelector('body').addEventListener('click', handleClick)
@@ -49,11 +50,13 @@ function init() {
     answer = words[Math.floor(Math.random() * words.length)]
     console.log(answer)
     answerArray = answer.split('')
+    letterButtons.className = 'letterButton'
     spaceMan()
     render()
 }
 
 function render() {
+    addClass()
     underscore()
     startGame()
     checkWin()
@@ -84,6 +87,10 @@ function handleClick(e) {
     } 
         checkWin()
 }}
+function addClass() {
+    letterButtons.forEach(button => {
+        button.classList.add('letterButton')
+    })}
 
 function guessTracker(e) {
     const guess = e.target.innerText
@@ -104,6 +111,9 @@ function guessTracker(e) {
 function startGame() {
     letterButtons.forEach((button) => (button.disabled = false)),
     restartButtonEl.style.visibility = winner ? 'visible' : 'hidden'
+    // for (let i = 0; i < letterButtons.length; i++) {
+    //     letterButtons[i].classList.add('letterButton')
+    // }
     // if (restartButtonEl.click === true) {
     //     init()
     // }
@@ -116,12 +126,19 @@ function checkWin() {
 
         console.log('game over')
         resultEl.innerText = 'You lose! Try again.'
-        allButtonsEl.disabled = 'disabled'
+
+        // letterButtons.forEach(button => {
+        //     button.classList.add('hidden')
+        // })
+        // letterButtons.className = 'hidden'
+        // allButtonsEl.disabled = 'disabled'
+
 
     } else if (underScoreEl.innerText.indexOf("_") === -1) {
         console.log('you win!')
         resultEl.innerText = 'You win! Well played.'
         restartButtonEl.style.visibility= "visible"
+        // letterButtons.disabled = 'disabled'
     }
 
 }
