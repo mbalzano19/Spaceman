@@ -11,10 +11,11 @@ Spaceman is an iteration of the classic game "Hangman". The objective of this ga
 - JavaScript
 - HTML
 - CSS
-- Rocketship image - find link
-- animista animation info
-- button animation info
-- background image info
+- Rocketship image - (https://static.vecteezy.com/system/resources/previews/013/743/608/original/cartoon-rocket-launch-png.png)
+- Photopea (to create different rocketship images)
+- Animista animation (slide-out-blurred-top)
+- Letter and Restart button graphics - (https://cssbuttoncreator.com/)
+- Background image - (https://i.imgur.com/ikRdyFY.png)
 
 # Getting Started
 
