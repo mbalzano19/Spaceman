@@ -4,7 +4,7 @@ Spaceman is an iteration of the classic game "Hangman". The objective of this ga
 # Screenshot
 
 <img src="https://i.imgur.com/0jTMFkN.png">
-<img src="https://i.imgur.com/7MztVhc.png">
+<img src="https://i.imgur.com/3mz8cXu.png">
 <img src="https://i.imgur.com/9USg8x2.png">
 
 # Technologies Used
