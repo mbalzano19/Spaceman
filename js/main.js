@@ -57,7 +57,7 @@ function init() {
 }
 
 function render() {
-    addClass()
+    // addClass()
     underscore()
     startGame()
     checkWin()
@@ -88,10 +88,10 @@ function handleClick(e) {
     } 
         checkWin()
 }}
-function addClass() {
-    letterButtons.forEach(button => {
-        button.classList.add('letterButton')
-    })}
+// function addClass() {
+//     letterButtons.forEach(button => {
+//         button.classList.add('letterButton')
+//     })}
 
 function guessTracker(e) {
     const guess = e.target.innerText
