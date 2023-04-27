@@ -28,7 +28,7 @@ function init() {
     guessedArray = []
     winner = null
     guess = null
-    guessesLeftEl.innerText = 7
+    guessesLeftEl.innerText = MAX_GUESS
     resultEl.innerText = 'Try to guess the animal!'
     rocketManEl.className = 'start'
     answer = words[Math.floor(Math.random() * words.length)]
@@ -61,8 +61,8 @@ function handleClick(e) {
         // the spaceman function is then called to change the rocketship image displayed based on how many wrong guesses
         // have been made
         if (guessesLeftEl.innerText > 0 && e.target !== restartButtonEl) {
-                guessesLeftEl.innerText -=1
-                spaceMan()
+            guessesLeftEl.innerText -=1
+            spaceMan()
     } 
     checkWin()
 }}
