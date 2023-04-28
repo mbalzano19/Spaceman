@@ -44,12 +44,14 @@ function render() {
     checkWin()
 }
 
+// this function creates the the same amount of underscores as there are letters in the answer word
 function underscore() {
-    // creates the the same amount of underscores as there are letters in the answer word
     underScoreEl.innerText = Array(answer.length + 1).join('_ ')
     underScoreEl.style.letterSpacing = '5px'
 }
 
+// this function handles a player guess, checks if it is correct, and then updates the wrong guesses left tracker
+// and the spaceman figure accordingly
 function handleClick(e) {
     if (e.target.tagName !== 'BUTTON') return
     guessTracker(e)
